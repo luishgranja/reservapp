@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+
+{% block titulo %}Registrar Usuario{% endblock titulo %}
+{% block titulo_panel %}Registrar Usuario{% endblock titulo_panel %}
+{% block descripcion_pagina %} Registra los usuarios de la aplicación {% endblock descripcion_pagina %}
+
+{% block contenido %}
+<form method="post" action="{% url 'accounts:registro' %}">
+    {% csrf_token %}
+    {% bootstrap_form form  %}
+    <button type="submit" class="btn btn-success">Registrar</button>
+</form>
+{% endblock contenido %}
