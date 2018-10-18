@@ -3,50 +3,58 @@
 {% load bootstrap3 %}
 {% block titulo %} Listar usuarios {% endblock titulo%}
 {% block css %}
-<link href="{% static 'assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css' }"
-      rel="stylesheet">{% endblock css %}
+    <link href="{% static 'assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css' %}"rel="stylesheet">
+{% endblock css %}
 
-{% block contenido %}
+{% block titulo_panel %}Listar usuarios{% endblock titulo_panel %}
+{% block descripcion_pagina %} Consulta los datos de los usuarios  {% endblock descripcion_pagina %}
 
-<div class="table-responsive">
-    <table id="zero_config" class="table table-striped table-bordered">
-        <thead>
-        <tr>
-            <th>Nombres</th>
-            <th>Apellidos</th>
-            <th>Documento</th>
-            <th>nombre de Usuario</th>
-            <th>Correo</th>
-            <th>Tipo de Usuario</th>
-            <th>Estado</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for usuario in usuarios %}
-        <tr>
-            <td>{{ usuario.first_name }}</td>
-            <td>{{ usuario.last_name }}</td>
-            <td>{{ usuario.documento }}</td>
-            <td>{{ usuario.username }}</td>
-            <td>{{ usuario.email }}</td>
-            <td>{{ usuario.tipo }}</td>
-            <td>{{ usuario.is_active }}</td>
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-</div>
-{% endblock contenido %}
+{% block contenido_panel %}
+
+    <div class="table-responsive">
+        <table id="tabla" class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Documento</th>
+                <th>Correo</th>
+                <th>Tipo</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario.first_name }}</td>
+                    <td>{{ usuario.last_name }}</td>
+                    <td>{{ usuario.documento }}</td>
+                    <td>{{ usuario.email }}</td>
+                    <td>{{ usuario.tipo }}</td>
+                    <td>{{ usuario.is_active }}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Info</button>
+                            <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 35px, 0px);">
+                                <a class="dropdown-item" href="{% url 'accounts:modificar_usuario' usuario.id %}">Editar usuario</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'accounts:cambiar_contrasena_usuario' usuario.id%}">Cambiar contraseña</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock contenido_panel %}
 
 
 {% block js %}
-        <script src="{% static 'assets/extra-libs/DataTables/datatables.min.js' %}"></script>
-        <script>
-        /****************************************
-         *       Basic Table                   *
-         ****************************************/
-        $('#zero_config').DataTable();
-
-        </script>
+    <script src="{% static 'assets/extra-libs/DataTables/datatables.min.js' %}"></script>
+    <script>
+        $('#tabla').DataTable();
+    </script>
 
 {% endblock js %}

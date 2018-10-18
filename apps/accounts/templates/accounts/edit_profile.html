@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% load bootstrap3 %}
-{% block titulo %} Actualizar Perfil {% endblock titulo%}
+{% block titulo %} Editar Perfil {% endblock titulo%}
 
 {% block miga_pan %}
-  <li class="breadcrumb-item"><a href="{% url 'accounts:home' %}">Dashboard</a></li>
-  <li class="breadcrumb-item active">Actualizar Información</li>
+    <li class="breadcrumb-item"><a href="{% url 'accounts:home' %}">Dashboard</a></li>
+    <li class="breadcrumb-item active">Editar perfil</li>
 {% endblock miga_pan %}
 
-{% block titulo_panel %}Editar información{% endblock titulo_panel %}
+{% block titulo_panel %}Editar Perfil{% endblock titulo_panel %}
+{% block descripcion_pagina %} Actualiza tu información {% endblock descripcion_pagina %}
 
-{% block contenido %}
-
-        <form method="post" action="{% url 'accounts:edit_profile' %}">
-          {% csrf_token %}
-          {% bootstrap_form form  %}
-          <button type="submit" class="btn btn-success">Guardar Cambios</button>
-        </form>
-{% endblock contenido%}
+{% block contenido_panel %}
+    <form method="post" action="{% url 'accounts:edit_profile' %}">
+        {% csrf_token %}
+        {% bootstrap_form form  %}
+        <button type="submit" class="btn btn-success">Guardar Cambios</button>
+    </form>
+{% endblock contenido_panel %}

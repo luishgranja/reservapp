@@ -16,3 +16,10 @@ class User(AbstractUser):
             return usuarios
         except User.DoesNotExist:
             return None
+
+    def get_user(id_user):
+        try:
+            user = User.objects.filter(id=id_user).first()
+            return user
+        except User.DoesNotExist:
+            return None
