@@ -19,6 +19,7 @@
     <!-- Custom CSS -->
     <link href="{% static 'dist/css/style.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'assets/libs/toastr/build/toastr.min.css' %}">
+    <link href="{% static 'dist/css/estilos.css' %}" rel="stylesheet">
     {% block css %}{% endblock css %}
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -39,7 +40,7 @@
 <!-- ============================================================== -->
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
-<div id="main-wrapper">
+<div id="main-wrapper" data-sidebartype="mini-sidebar" class="mini-sidebar">
     <!-- ============================================================== -->
     <!-- Topbar header - style you can find in pages.scss -->
     <!-- ============================================================== -->

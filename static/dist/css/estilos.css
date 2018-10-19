@@ -1,0 +1,12 @@
+.form-group.has-error .help-block{
+    color: #da542e !important;
+}
+.form-group.has-error input, .form-group.has-error select{
+    border-color: #da542e !important;
+}
+.form-group.has-success .help-block{
+    color: #28b779 !important;
+}
+.form-group.has-success input, .form-group.has-success select{
+    border-color: #28b779 !important;
+}

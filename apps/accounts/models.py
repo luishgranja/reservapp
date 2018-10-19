@@ -6,7 +6,7 @@ class User(AbstractUser):
     tipos = ( ('profe', 'Profesor'), ('estudiante', 'Estudiante') )
     tipo =  models.CharField(max_length=10,choices=tipos)
 
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'tipo', 'email' , 'username' ,'is_active']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'tipo', 'email','is_active']
     USERNAME_FIELD = 'documento'
 
     @staticmethod
@@ -19,7 +19,7 @@ class User(AbstractUser):
 
     def get_user(id_user):
         try:
-            user = User.objects.filter(id=id_user).first()
+            user = User.objects.get(id=id_user)
             return user
         except User.DoesNotExist:
             return None

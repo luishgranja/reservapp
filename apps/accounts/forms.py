@@ -6,15 +6,17 @@ from apps.accounts.models import User
 class SignUpForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name','documento', 'username','email','password1', 'password2', 'tipo',
+        fields = ('first_name', 'last_name', 'documento', 'email', 'password1', 'password2', 'tipo',
                   'is_active')
 
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
 
-        for fieldname in ['username', 'password1', 'password2']:
+        for fieldname in ['password1', 'password2', 'is_active']:
             self.fields[fieldname].help_text = None
 
+        # for fieldname in ['first_name', 'last_name', 'documento', 'email', 'password1', 'password2', 'tipo', 'is_active']:
+        #     self.fields[fieldname].placeholder = None
 
 class EditProfileForm(forms.ModelForm):
     class Meta:

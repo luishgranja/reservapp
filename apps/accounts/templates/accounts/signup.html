@@ -2,7 +2,6 @@
 {% load staticfiles %}
 {% load bootstrap3 %}
 
-
 {% block titulo %}Registrar Usuario{% endblock titulo %}
 {% block titulo_panel %}Registrar Usuario{% endblock titulo_panel %}
 {% block descripcion_pagina %} Registra un usuario en la aplicacion {% endblock descripcion_pagina %}
@@ -11,16 +10,18 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 align-content-center">
+            <div class="col-md-6 offset-md-3">
                 <div class="card card-body">
                     <h3><b>Registrar Usuario</b></h3>
                     <small>Registra los usuarios de la aplicación</small> <br>
                     <div class="row">
-                        <form method="post" action="{% url 'accounts:registro' %}">
-                            {% csrf_token %}
-                            {% bootstrap_form form  %}
-                            <button type="submit" class="btn btn-success">Registrar</button>
-                        </form>
+                        <div class="col-md-12">
+                            <form method="post" action="{% url 'accounts:registro' %}">
+                                {% csrf_token %}
+                                {% bootstrap_form form %}
+                                <button type="submit" class="btn btn-success">Registrar</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
