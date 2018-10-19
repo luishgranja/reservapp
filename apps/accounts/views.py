@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from apps.accounts.forms import SignUpForm
 from django.contrib.auth.forms import PasswordChangeForm, SetPasswordForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, update_session_auth_hash

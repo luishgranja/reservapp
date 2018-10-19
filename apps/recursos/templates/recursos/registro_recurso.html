@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+
+{% block titulo %}Registrar recurso{% endblock titulo %}
+{% block titulo_panel %}Registrar recurso{% endblock titulo_panel %}
+{% block descripcion_pagina %} Registra un recurso en la aplicacion {% endblock descripcion_pagina %}
+
+{% block contenido %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 align-content-center">
+                <div class="card card-body">
+                    <h3><b>Registrar recurso</b></h3>
+                    <small>Registra los recursos de la aplicación</small> <br>
+                    <div class="row">
+                        <form method="post">
+                            {% csrf_token %}
+                            {% bootstrap_form form  %}
+                            <button type="submit" class="btn btn-success">Registrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock contenido %}
