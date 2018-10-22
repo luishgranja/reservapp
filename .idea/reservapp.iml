@@ -14,7 +14,11 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
+<<<<<<< HEAD
     <orderEntry type="inheritedJdk" />
+=======
+    <orderEntry type="jdk" jdkName="Python 3.5 (env) (2)" jdkType="Python SDK" />
+>>>>>>> bacf933bedf763a064f3e80a3352f53eaacfb64a
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">

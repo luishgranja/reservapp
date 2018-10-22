@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
+=======
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.5 (env) (2)" project-jdk-type="Python SDK" />
+  <component name="PyCharmProfessionalAdvertiser">
+    <option name="shown" value="true" />
+>>>>>>> bacf933bedf763a064f3e80a3352f53eaacfb64a
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.5 (ambiente) (1)" project-jdk-type="Python SDK" />
 </project>
