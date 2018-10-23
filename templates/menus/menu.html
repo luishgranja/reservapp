@@ -7,8 +7,12 @@
                 <li class="sidebar-item"><a href="{% url 'accounts:consultar' %}" class="sidebar-link"><i class="mdi mdi-account-search"></i><span class="hide-menu"> Consultar </span></a></li>
             </ul>
         </li>
-        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'recursos:registrar_recurso' %}" aria-expanded="false"><i class="mdi mdi-cellphone-link"></i><span class="hide-menu">Recursos</span></a></li>
-
+        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-cellphone-link"></i><span class="hide-menu">Recursos </span></a>
+            <ul aria-expanded="false" class="collapse  first-level">
+                <li class="sidebar-item"><a href="{% url 'recursos:registrar_recurso' %}" class="sidebar-link"><i class="mdi mdi-shape-circle-plus"></i><span class="hide-menu"> Registrar </span></a></li>
+                <li class="sidebar-item"><a href="{% url 'recursos:consultar_recursos' %}" class="sidebar-link"><i class="mdi mdi-magnify-plus"></i><span class="hide-menu"> Consultar </span></a></li>
+            </ul>
+        </li>
         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-buttons.html" aria-expanded="false"><i class="mdi mdi-relative-scale"></i><span class="hide-menu">Buttons</span></a></li>
         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Icons </span></a>
             <ul aria-expanded="false" class="collapse  first-level">

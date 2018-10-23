@@ -6,7 +6,7 @@ class User(AbstractUser):
     tipos = ( ('profe', 'Profesor'), ('estudiante', 'Estudiante') )
     tipo =  models.CharField(max_length=10,choices=tipos)
 
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'tipo', 'email','is_active']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'tipo', 'email','is_active', 'username']
     USERNAME_FIELD = 'documento'
 
     @staticmethod

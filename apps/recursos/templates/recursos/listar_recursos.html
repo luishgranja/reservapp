@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% load bootstrap3 %}
-{% block titulo %} Listar usuarios {% endblock titulo%}
+{% block titulo %} Listar recusos {% endblock titulo%}
 {% block css %}
 <link href="{% static 'assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css' %}"rel="stylesheet">
 {% endblock css %}
 
-{% block titulo_panel %}Listar usuarios{% endblock titulo_panel %}
-{% block descripcion_pagina %} Consulta los datos de los usuarios  {% endblock descripcion_pagina %}
+{% block titulo_panel %}Listar recursos{% endblock titulo_panel %}
+{% block descripcion_pagina %} Consulta los recursos registrados  {% endblock descripcion_pagina %}
 
 {% block contenido_panel %}
 
@@ -15,35 +15,33 @@
   <table id="tabla" class="table table-striped table-bordered">
     <thead>
       <tr>
-        <th>Nombres</th>
-        <th>Apellidos</th>
-        <th>Documento</th>
-        <th>Correo</th>
+        <th>Nombre</th>
         <th>Tipo</th>
+        <th>Activo</th>
         <th>Estado</th>
+        <th>Observaciones</th>
         <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
-      {% for usuario in usuarios %}
+      {% for recurso in recursos %}
       <tr>
-        <td>{{ usuario.first_name }}</td>
-        <td>{{ usuario.last_name }}</td>
-        <td>{{ usuario.documento }}</td>
-        <td>{{ usuario.email }}</td>
-        <td>{{ usuario.tipo }}</td>
-        {% if usuario.is_active %}
+        <td>{{ recurso.nombre }}</td>
+        <td>{{ recurso.tipo }}</td>
+        {% if recurso.is_active %}
         <td class="text-success">Activo</td>
         {% else %}
         <td class="text-danger">Inactivo</td>
         {% endif %}
+        <td>{{ recurso.estado }}</td>
+        <td>{{ recurso.observaciones }}</td>
         <td>
           <div class="btn-group">
             <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Info</button>
             <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 35px, 0px);">
-              <a class="dropdown-item" href="{% url 'accounts:modificar_usuario' usuario.id %}">Editar usuario</a>
+              <a class="dropdown-item" href="{% url 'recursos:editar_recurso' recurso.id %}">Editar recurso</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{% url 'accounts:cambiar_contrasena_usuario' usuario.id%}">Cambiar contraseña</a>
+              <a class="dropdown-item" href="#">Reservar recurso</a>
             </div>
           </div>
         </td>

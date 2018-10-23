@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% block titulo %} Editar recurso {% endblock titulo%}
+
+{% block miga_pan %}
+<li class="breadcrumb-item"><a href="{% url 'accounts:home' %}">Dashboard</a></li>
+<li class="breadcrumb-item active">Actualizar Información</li>
+{% endblock miga_pan %}
+
+{% block contenido %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card card-body">
+        <h3><b>Editar información del recurso</b></h3>
+        <div class="row">
+          <div class="col-md-12">
+            <form method="post">
+              {% csrf_token %}
+              {% bootstrap_form form  %}
+              <div class="border-top">
+                <div class="card-body">
+                  <button type="submit" class="btn btn-success">Guardar Cambios</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock contenido %}
+
+{% block js %}
+
+<script type="text/javascript" src="{% static '/dist/js/check.js' %}"></script>
+
+{% endblock js %}
