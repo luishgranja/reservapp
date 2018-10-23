@@ -1,8 +1,10 @@
 from django.urls import path , include
 from .views import *
 
+app_name = 'recursos'
+
 urlpatterns = [
 
-    path('registro/', registrar_recurso, name='registrar_recurso'),
+    path('registrar-recurso', registrar_recurso, name='registrar_recurso'),
 
 ]

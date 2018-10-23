@@ -67,12 +67,13 @@ def modificar_usuario(request, idUser):
             if form.is_valid():
                 form.save()
                 messages.success(request, 'Has modificado el usuario ' + user.get_full_name() + ' exitosamente!')
-                return redirect('accounts:home')
+                return redirect('accounts:consultar')
             else:
                 messages.error(request, 'Por favor corrige los errores')
+                return render(request, "accounts/edit_user.html", {'form': form})
         else:
             form = EditFullProfile(instance=user)
-        return render(request, "accounts/edit_user.html", {'form': form})
+            return render(request, "accounts/edit_user.html", {'form': form})
     else:
         messages.error(request, 'No estas autorizado para realizar esta acción')
         return redirect('accounts:home')
@@ -129,8 +130,3 @@ def cambiar_contrasena_usuario(request, id_user):
     else:
         messages.error(request, 'No estas autorizado para realizar esta acción')
         return redirect('accounts:home')
-
-
-
-
-

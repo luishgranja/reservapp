@@ -20,4 +20,4 @@ class Recurso(models.Model):
     )
 
     estado = models.CharField(choices=ESTADOS, max_length= 11)
-    observaciones = models.CharField(max_length=100)
+    observaciones = models.TextField(max_length=150)

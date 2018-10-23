@@ -15,8 +15,6 @@ class SignUpForm(UserCreationForm):
         for fieldname in ['password1', 'password2', 'is_active']:
             self.fields[fieldname].help_text = None
 
-        # for fieldname in ['first_name', 'last_name', 'documento', 'email', 'password1', 'password2', 'tipo', 'is_active']:
-        #     self.fields[fieldname].placeholder = None
 
 class EditProfileForm(forms.ModelForm):
     class Meta:

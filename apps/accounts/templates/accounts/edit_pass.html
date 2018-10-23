@@ -3,23 +3,27 @@
 {% load bootstrap3 %}
 {% block titulo %} Cambiar contraseña {% endblock titulo%}
 {% block miga_pan %}
-    <li class="breadcrumb-item"><a href="{% url 'accounts:home' %}">Dashboard</a></li>
-    <li class="breadcrumb-item active">Cambiar Contraseña</li>
+<li class="breadcrumb-item"><a href="{% url 'accounts:home' %}">Dashboard</a></li>
+<li class="breadcrumb-item active">Cambiar Contraseña</li>
 {% endblock miga_pan %}
 
-{% block contenido_panel %}
-    <div class="col-md-6 col-md-offset-3">
-        <div class="panel">
-            <div class="panel-heading">
-                <h3 class="panel-title">Cambiar Contraseña</h3>
-            </div>
-            <div class="panel-body">
-                <form method="post" action="{% url 'accounts:cambiar_contrasena' %}">
-                    {% csrf_token %}
-                    {% bootstrap_form form  %}
-                    <button type="submit" class="btn btn-success">Guardar Cambios</button>
-                </form>
-            </div>
+{% block contenido %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card card-body">
+        <h3><b>Cambiar contraseña</b></h3>
+        <div class="row">
+          <div class="col-md-12">
+            <form method="post" action="{% url 'accounts:cambiar_contrasena' %}">
+              {% csrf_token %}
+              {% bootstrap_form form  %}
+              <button type="submit" class="btn btn-success">Guardar Cambios</button>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-{% endblock contenido_panel %}
+  </div>
+</div>
+{% endblock contenido %}

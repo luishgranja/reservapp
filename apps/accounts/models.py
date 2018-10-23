@@ -23,3 +23,11 @@ class User(AbstractUser):
             return user
         except User.DoesNotExist:
             return None
+
+    def get_tipo(self):
+        if self.is_staff:
+            return 'Administrador'
+        if self.tipo == 'profe':
+            return 'Profesor'
+        if self.tipo == 'estudiante':
+            return 'Estudiante'
