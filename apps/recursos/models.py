@@ -5,10 +5,13 @@ from apps.reservas.models import *
 class Recurso(models.Model):
     nombre = models.CharField(max_length=20)
     TIPOS = (
-        ('Computador','Computador'),
+        ('Computador','Computador de Mesa'),
         ('video', 'Video Beam'),
-        ('', ''),
-        ('', ''),
+        ('Bafle', 'Bafle'),
+        ('Portatil', 'Portatil'),
+        ('cable-vga', 'Cable VGA'),
+        ('cable-poder', 'Cable poder'),
+        ('cable-hdmi', 'Cable HDMI'),
     )
 
     tipo = models.CharField(choices=TIPOS, max_length=15, default='Computador')
