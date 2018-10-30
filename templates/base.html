@@ -24,7 +24,6 @@
 
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
@@ -52,7 +51,7 @@
                 <!-- ============================================================== -->
                 <!-- Logo -->
                 <!-- ============================================================== -->
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="{% url 'accounts:home' %}">
                     <!-- Logo icon -->
                     <b class="logo-icon p-l-10">
                         <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -126,7 +125,9 @@
         <!-- Sidebar scroll-->
         <div class="scroll-sidebar">
             <!-- Sidebar navigation-->
-            {% include 'menus/menu.html' %}
+            {% if user.is_staff %} {% include 'menus/menu_admin.html' %}
+            {% else %} {% include 'menus/menu_aux.html' %}
+            {% endif %}
             <!-- End Sidebar navigation -->
         </div>
         <!-- End Sidebar scroll-->

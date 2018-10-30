@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.template.defaultfilters import slugify
 
 class User(AbstractUser):
     documento = models.CharField(max_length=10, unique = True)
@@ -8,6 +9,10 @@ class User(AbstractUser):
 
     REQUIRED_FIELDS = ['first_name', 'last_name', 'tipo', 'email','is_active', 'username']
     USERNAME_FIELD = 'documento'
+
+    def save(self, *args):
+        self.username = slugify(self.get_full_name())
+        super(User, self).save(*args)
 
     @staticmethod
     def listar_usuarios():

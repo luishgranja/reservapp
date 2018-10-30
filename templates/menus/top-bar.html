@@ -6,8 +6,7 @@
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><p>{{user.get_full_name}} ({{user.get_tipo}})</p></a>
         <div class="dropdown-menu dropdown-menu-right user-dd animated">
-            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> Mi Perfil</a>
-            <a class="dropdown-item" href="javascript:void(0)"><i class="ti-bookmark-alt m-r-5 m-l-5"></i> Mis reservas</a>
+            <a class="dropdown-item" href="{% url 'reservas:consultar_reservas' %}"><i class="ti-bookmark-alt m-r-5 m-l-5"></i> Mis reservas</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{% url 'accounts:edit_profile' %}"><i class="ti-settings m-r-5 m-l-5"></i> Editar perfil</a>
             <a class="dropdown-item" href="{% url 'accounts:cambiar_contrasena' %}"><i class="ti-key m-r-5 m-l-5"></i> Cambiar contraseña</a>

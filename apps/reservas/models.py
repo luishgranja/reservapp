@@ -4,8 +4,9 @@ from apps.recursos.models import *
 from datetime import date
 
 class Reserva(models.Model):
-    id_usuario = models.ForeignKey(User, on_delete=models.CASCADE)
-    id_recurso = models.ForeignKey('recursos.Recurso', on_delete=models.CASCADE)
-    fecha_inicio = models.DateField(default=date.today)
-    fecha_final = models.DateField(default=date.today)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    recurso = models.ForeignKey('recursos.Recurso', on_delete=models.CASCADE)
+    fecha_inicio = models.DateTimeField(default=date.today)
+    fecha_final = models.DateTimeField(default=date.today)
+    observaciones = models.TextField(max_length=150, blank=True)
     is_active = models.BooleanField(default=True)

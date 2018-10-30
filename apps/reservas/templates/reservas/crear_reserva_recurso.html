@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+
+{% block titulo %}Crear reserva{% endblock titulo %}
+{% block titulo_panel %}Crear reserva{% endblock titulo_panel %}
+{% block descripcion_pagina %}Reserva un recurso{% endblock descripcion_pagina %}
+
+{% block css %}
+<link href="{% static '/assets/libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css' %}"></link>
+<link href="{% static '/assets/libs/bootstrap/dist/css/bootstrap.min.css' %}"></link>
+
+{% endblock css %}
+
+{% block contenido %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card card-body">
+        <h3>Reservar<b> {{recurso}}</b></h3>
+        <small> </small> <br>
+        <div class="row">
+          <div class="col-md-12">
+            <form method="post">
+              {% csrf_token %}
+              {% bootstrap_form form %}
+              <button type="submit" class="btn btn-success">Crear reserva</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock contenido %}
+
+{% block js %}
+
+<script type="text/javascript" src="{% static '/dist/js/check.js' %}"></script>
+<script type="text/javascript" src="{% static '/assets/libs/jquery/dist/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static '/assets/libs/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static '/assets/libs/bootstrap-datetimepicker/js/moment.min.js' %}"></script>
+<script type="text/javascript" src="{% static '/assets/libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js' %}"></script>
+
+<script>
+
+    $fecha_inicio = $('#id_fecha_inicio');
+    $fecha_final = $('#id_fecha_final');
+
+    $fecha_inicio.datetimepicker({
+        format: 'dd/mm/yyyy hh:mm'
+    });
+
+    $fecha_final.datetimepicker({
+        'format': 'DD/MM/YYYY HH:mm',
+    });
+
+    $fecha_inicio.on("dp.change", function (e) {
+        $('#fecha_final').data("DateTimePicker").minDate(e.date);
+    });
+
+    $fecha_final.on("dp.change", function (e) {
+        $('#id_fecha_inicio').data("DateTimePicker").maxDate(e.date);
+    });
+
+</script>
+
+{% endblock js %}

@@ -7,7 +7,7 @@ app_name = 'accounts'
 urlpatterns = [
 
     path('registrar-usuarios', signup, name='registro'),
-    path('login/', auth_views.LoginView.as_view(redirect_authenticated_user=True, template_name='accounts/login.html'),name='login'),
+    path('', auth_views.LoginView.as_view(redirect_authenticated_user=True, template_name='accounts/login.html'),name='login'),
     path('dashboard', home, name='home'),
     path('logout', auth_views.LogoutView.as_view(), name='logout'),
     path('editar-perfil', edit_profile, name='edit_profile'),

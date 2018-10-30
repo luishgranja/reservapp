@@ -3,7 +3,7 @@ from apps.accounts.models import *
 from apps.reservas.models import *
 
 class Recurso(models.Model):
-    nombre = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=30)
     TIPOS = (
         ('Computador','Computador de Mesa'),
         ('video', 'Video Beam'),
