@@ -7,6 +7,6 @@ class Reserva(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     recurso = models.ForeignKey('recursos.Recurso', on_delete=models.CASCADE)
     fecha_inicio = models.DateTimeField(default=date.today)
-    fecha_final = models.DateTimeField(default=date.today)
+    fecha_final = models.DateTimeField()
     observaciones = models.TextField(max_length=150, blank=True)
     is_active = models.BooleanField(default=True)

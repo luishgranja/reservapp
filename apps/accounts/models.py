@@ -6,13 +6,11 @@ class User(AbstractUser):
     documento = models.CharField(max_length=10, unique = True)
     tipos = ( ('profe', 'Profesor'), ('estudiante', 'Estudiante') )
     tipo =  models.CharField(max_length=10,choices=tipos)
+    username = models.CharField(max_length=15, blank=True)
 
     REQUIRED_FIELDS = ['first_name', 'last_name', 'tipo', 'email','is_active', 'username']
     USERNAME_FIELD = 'documento'
 
-    def save(self, *args):
-        self.username = slugify(self.get_full_name())
-        super(User, self).save(*args)
 
     @staticmethod
     def listar_usuarios():

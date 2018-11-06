@@ -16,7 +16,7 @@ class Recurso(models.Model):
 
     tipo = models.CharField(choices=TIPOS, max_length=15, default='Computador')
     is_active = models.BooleanField(default=True)
-    ESTADOS = (
+    CONDICIONES = (
         ('Pesimo', 'Pésimo (1)'),
         ('Malo','Malo (2)'),
         ('Regular', 'Regular (3)'),
@@ -24,9 +24,11 @@ class Recurso(models.Model):
         ('Excelente', 'Excelente (5)'),
     )
 
-    estado = models.CharField(choices=ESTADOS, max_length= 11)
+    condicion = models.CharField(choices=CONDICIONES, max_length= 11, default='Excelente')
     observaciones = models.TextField(max_length=150)
     usuarios = models.ManyToManyField(User, through = Reserva)
+    estado = models.BooleanField(default=False)
+
 
     def __str__(self):
         return self.nombre

@@ -14,9 +14,6 @@ class CrearReservaRecursoForm(forms.ModelForm):
     class Meta:
         model = Reserva
         fields = ('fecha_inicio', 'fecha_final','observaciones')
-        widgets = {
-            'fecha_inicio': forms.DateTimeInput(attrs={'class': 'datetimepicker'})
-        }
 
 
 class EditarReservaForm(forms.ModelForm):

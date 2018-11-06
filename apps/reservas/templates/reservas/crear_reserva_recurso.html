@@ -8,9 +8,7 @@
 {% block descripcion_pagina %}Reserva un recurso{% endblock descripcion_pagina %}
 
 {% block css %}
-<link href="{% static '/assets/libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css' %}"></link>
-<link href="{% static '/assets/libs/bootstrap/dist/css/bootstrap.min.css' %}"></link>
-
+<link rel="stylesheet" href="{% static '/assets/libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css' %}">
 {% endblock css %}
 
 {% block contenido %}
@@ -40,8 +38,6 @@
 {% block js %}
 
 <script type="text/javascript" src="{% static '/dist/js/check.js' %}"></script>
-<script type="text/javascript" src="{% static '/assets/libs/jquery/dist/jquery.min.js' %}"></script>
-<script type="text/javascript" src="{% static '/assets/libs/bootstrap/dist/js/bootstrap.min.js' %}"></script>
 <script type="text/javascript" src="{% static '/assets/libs/bootstrap-datetimepicker/js/moment.min.js' %}"></script>
 <script type="text/javascript" src="{% static '/assets/libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js' %}"></script>
 
@@ -51,21 +47,30 @@
     $fecha_final = $('#id_fecha_final');
 
     $fecha_inicio.datetimepicker({
-        format: 'dd/mm/yyyy hh:mm'
+      'format': 'DD/MM/YYYY HH:mm',
+      sideBySide: true,
+      icons: {
+        up: "fa fa-arrow-up",
+        down: "fa fa-arrow-down"
+      },
     });
 
     $fecha_final.datetimepicker({
         'format': 'DD/MM/YYYY HH:mm',
+        sideBySide: true,
+        icons: {
+          up: "fa fa-arrow-up",
+          down: "fa fa-arrow-down"
+        }
     });
 
     $fecha_inicio.on("dp.change", function (e) {
-        $('#fecha_final').data("DateTimePicker").minDate(e.date);
+        $('#id_fecha_final').data("DateTimePicker").minDate(e.date);
     });
 
     $fecha_final.on("dp.change", function (e) {
         $('#id_fecha_inicio').data("DateTimePicker").maxDate(e.date);
     });
-
 </script>
 
 {% endblock js %}

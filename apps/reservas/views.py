@@ -33,10 +33,17 @@ def crear_reserva_recurso(request, id_recurso):
 
         form = CrearReservaRecursoForm(request.POST)
         if form.is_valid():
-            form_aux = form.save(commit=False)
-            form_aux.usuario = usuario
-            form_aux.recurso = recurso
-            form_aux.save()
+            reserva = form.save(commit=False)
+            reserva.usuario = usuario
+
+            #Cambiar el estado del recurso para que este ocupado
+            recurso.estado = True
+            recurso.save()
+            reserva.recurso = recurso
+
+            #Guardar el formulario auxiliar con los cambios
+            reserva.save()
+            form.save_m2m()
             messages.success(request, 'Reserva generada exitosamente')
             return redirect('recursos:consultar_recursos')
         else:
@@ -54,18 +61,19 @@ def editar_reserva(request, id_reserva):
     recurso = reserva.recurso
 
     if request.method == 'POST':
-        form = EditarReservaForm(request.POST)
+        form = EditarReservaForm(request.POST, instance=reserva)
         if form.is_valid():
             form_aux = form.save(commit=False)
             form_aux.usuario = usuario
             form_aux.recurso = recurso
+            form_aux.save()
             messages.success(request, 'Reserva modificada exitosamente')
             return redirect('reservas:consultar_reservas')
         else:
             messages.error(request, 'Por favor corrige los errores')
             return render(request, 'reservas/editar_reserva.html', {'form': form, 'recurso': recurso.nombre})
     else:
-        form = EditarReservaForm()
+        form = EditarReservaForm(instance=reserva)
         return render (request, 'reservas/editar_reserva.html', {'form': form, 'recurso': recurso.nombre})
 
 @login_required
@@ -75,6 +83,6 @@ def consultar_reservas(request):
     if usuario.is_staff:
         reservas = Reserva.objects.all()
     else:
-        reservas = Reserva.objects.filter(usuario_id=usuario.id)
+        reservas = Reserva.objects.filter(usuario=usuario)
 
     return render(request, 'reservas/listar_reservas.html', {'reservas': reservas})

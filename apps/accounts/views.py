@@ -15,8 +15,8 @@ def signup(request):
         if request.method == 'POST':
             form = SignUpForm(request.POST)
             if form.is_valid():
-                messages.success(request, 'Usuario registrado exitosamente')
                 form.save()
+                messages.success(request, 'Usuario registrado exitosamente')
                 return render(request, 'accounts/signup.html', {'form': SignUpForm()})
             else:
                 messages.error(request, 'Por favor corrige los errores')

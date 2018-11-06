@@ -4,7 +4,7 @@ from apps.recursos.models import *
 class registro_recurso(forms.ModelForm):
     class Meta:
         model = Recurso
-        fields = ('nombre', 'tipo', 'estado', 'observaciones', 'is_active')
+        fields = ('nombre', 'tipo', 'condicion', 'observaciones', 'is_active')
         labels = {
         'is_active': 'Activo',
         }
