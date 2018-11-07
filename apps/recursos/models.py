@@ -25,9 +25,9 @@ class Recurso(models.Model):
     )
 
     condicion = models.CharField(choices=CONDICIONES, max_length= 11, default='Excelente')
-    observaciones = models.TextField(max_length=150)
+    observaciones = models.TextField(max_length=150, blank=True)
     usuarios = models.ManyToManyField(User, through = Reserva)
-    estado = models.BooleanField(default=False)
+    estado = models.BooleanField(default=True)
 
 
     def __str__(self):

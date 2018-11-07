@@ -14,7 +14,7 @@
 
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/favicon.png' %}">
-    <title>{% block titulo %}{% endblock titulo %}</title>
+    <title>{% block titulo %}{% endblock titulo %} | RESERVAPP</title>
 
     <!-- Custom CSS -->
     <link href="{% static 'dist/css/style.min.css' %}" rel="stylesheet">
@@ -53,19 +53,10 @@
                 <!-- ============================================================== -->
                 <a class="navbar-brand" href="{% url 'accounts:home' %}">
                     <!-- Logo icon -->
-                    <b class="logo-icon p-l-10">
-                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                        <!-- Dark Logo icon -->
-                        <img src="{% static 'assets/images/logo-icon.png' %}" alt="homepage" class="light-logo" />
-
-                    </b>
+                    <span class="logo-icon p-l-10"><i class="ti-home"></i></span>
                     <!--End Logo icon -->
                     <!-- Logo text -->
-                    <span class="logo-text">
-                             <!-- dark Logo text -->
-                             <img src="{% static 'assets/images/logo-text.png' %}" alt="homepage" class="light-logo" />
-
-                        </span>
+                    <span class="logo-text">RESERV<b>APP</b></span>
                     <!-- Logo icon -->
                     <!-- <b class="logo-icon"> -->
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -92,21 +83,6 @@
                 <!-- ============================================================== -->
                 <ul class="navbar-nav float-left mr-auto">
                     <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
-                    <!-- ============================================================== -->
-                    <!-- create new -->
-                    <!-- ============================================================== -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
-                            <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
                 </ul>
                 <!-- ============================================================== -->
                 <!-- Right side toggle and nav items -->
@@ -187,7 +163,7 @@
         <!-- footer -->
         <!-- ============================================================== -->
         <footer class="footer text-center">
-            Template Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+            Desarrollado por <a href="https://github.com/luishgranja">Luis Granja</a>.
         </footer>
         <!-- ============================================================== -->
         <!-- End footer -->

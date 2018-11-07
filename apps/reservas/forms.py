@@ -1,7 +1,12 @@
 from django import forms
 from apps.reservas.models import *
+from apps.recursos.models import Recurso
 
 class CrearReservaForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(CrearReservaForm, self).__init__(*args, *kwargs)
+        self.fields['recurso'].queryset = Recurso.objects.filter(estado=True) & Recurso.objects.filter(is_active=True)
+
     class Meta:
         model = Reserva
         fields = ('recurso', 'fecha_inicio', 'fecha_final','observaciones' ,'is_active')

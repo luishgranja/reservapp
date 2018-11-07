@@ -20,6 +20,7 @@
         <th>Activo</th>
         <th>Estado</th>
         <th>Observaciones</th>
+        <th>Disponibilidad</th>
         <th>Acciones</th>
       </tr>
     </thead>
@@ -35,11 +36,18 @@
         {% endif %}
         <td>{{ recurso.condicion }}</td>
         <td>{{ recurso.observaciones }}</td>
+        {% if recurso.estado %}
+        <td class="text-success">Disponible</td>
+        {% else %}
+        <td class="text-danger">Ocupado</td>
+        {% endif %}
         <td>
           <div class="btn-group">
             <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Info</button>
             <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 35px, 0px);">
+              {% if user.is_staff %}
               <a class="dropdown-item" href="{% url 'recursos:editar_recurso' recurso.id %}">Editar recurso</a>
+              {% endif %}
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{% url 'reservas:crear_reserva_recurso' recurso.id %}">Reservar recurso</a>
             </div>

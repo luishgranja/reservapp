@@ -34,9 +34,11 @@ def signup(request):
 def home(request):
     usuario = request.user
     if usuario.is_staff:
-        return render(request, 'accounts/home.html', {'user': usuario})
+        return redirect('recursos:consultar_recursos')
+        #return render(request, 'accounts/home.html', {'user': usuario})
     else:
-        return render(request, 'accounts/home.html', {'user': usuario})
+        return redirect('recursos:consultar_recursos')
+        #return render(request, 'accounts/home_aux.html', {'user': usuario})
 
 
 @login_required
